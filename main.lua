@@ -23,6 +23,7 @@ screen.yCenter = (screen.yMin + screen.yMax) / 2
 
 physics.start()
 
+myCluster = alien_cluster:new(20, 8)
 
 
 function testLaser(e)
