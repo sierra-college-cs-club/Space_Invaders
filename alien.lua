@@ -4,3 +4,22 @@
 -- handled in the 'alien-cluster.lua' file.
 
 -- Fires a laser downwards towards the player.
+
+local alien
+
+
+function setupAlien(x,y)
+
+	display.newRoundedRect( x, y, 200, 200, 23 )
+
+
+
+
+
+
+
+end
+
+
+
+setupAlien(50,50)    --for testing
