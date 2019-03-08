@@ -9,8 +9,8 @@ local Alien = {}
 
 
 function Alien:new(x,y)
-
 	alien=display.newRoundedRect( x, y, 100, 100, 10 )
+
 	setmetatable(alien, self)
 	self.__index = self
 
@@ -19,10 +19,8 @@ end
 
 function Alien.move(x,y)
 
-	alien.x, alien.y = alien.x+x, alien.y+y
+	self.alien.x, self.alien.y = self.alien.x+x, self.alien.y+y
 end
-
-
 
 
 return Alien
