@@ -1,0 +1,2 @@
+-- Stationary & partially blocks player / alien attacks.
+-- Slowly (and visually) destroyed with every hit.

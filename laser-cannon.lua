@@ -1,0 +1,2 @@
+-- The laser cannon can move in the X direction with a fixed Y position.
+-- Handle health / movement / laser firing.
