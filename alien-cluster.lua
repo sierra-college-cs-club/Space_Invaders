@@ -3,3 +3,6 @@
 -- descent patterns.
 
 local alienSource=require('alien')
+
+
+alienSource:new(104,247)
