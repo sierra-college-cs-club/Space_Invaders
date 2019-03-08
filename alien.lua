@@ -5,12 +5,12 @@
 
 -- Fires a laser downwards towards the player.
 
-local alien
+local alien = {}
 
 
-function setupAlien(x,y)
+function alien.setup(x,y)
 
-	display.newRoundedRect( x, y, 100, 100, 23 )
+	alien=display.newRoundedRect( x, y, 100, 100, 10 )
 
 
 
@@ -20,6 +20,12 @@ function setupAlien(x,y)
 
 end
 
+function moveAlien(x,y)
+
+	alien.x, alien.y = alien.x+x, alien.y+y
+end
 
 
-setupAlien(50,50)    --for testing
+
+
+return alien
