@@ -25,6 +25,10 @@ physics.start()
 
 myCluster = alien_cluster:new(20, 8)
 
+startAliens()
+
+local lasercanon = display.newRect(display.contentCenterX, display.contentHeight +20, 40,20)
+
 
 function testLaser(e)
     if e.phase == 'began' then
