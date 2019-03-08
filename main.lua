@@ -23,7 +23,10 @@ screen.yCenter = (screen.yMin + screen.yMax) / 2
 
 physics.start()
 
+
 startAliens()
+
+local lasercanon = display.newRect(display.contentCenterX, display.contentHeight +20, 40,20)
 
 
 function testLaser(e)
