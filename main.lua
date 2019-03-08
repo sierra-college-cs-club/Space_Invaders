@@ -11,6 +11,8 @@ local physics = require('physics')
 
 physics.start()
 
+local lasercanon = display.newRect(display.contentCenterX, display.contentHeight +20, 40,20)
+
 function testLaser(e)
     if e.phase == 'began' then
         local laser = Laser:new(e.x, e.y, 'up')
