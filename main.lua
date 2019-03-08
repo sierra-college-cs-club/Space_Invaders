@@ -23,6 +23,7 @@ screen.yCenter = (screen.yMin + screen.yMax) / 2
 
 physics.start()
 
+startAliens()
 
 
 function testLaser(e)

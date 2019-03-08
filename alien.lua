@@ -6,21 +6,30 @@
 -- Fires a laser downwards towards the player.
 
 local Alien = {}
-
+local Laser = require('laser')
+local physics = require('physics')
 
 function Alien:new(x,y)
 	alien=display.newRoundedRect( x, y, 100, 100, 10 )
 
 	setmetatable(alien, self)
 	self.__index = self
-
+	return self
 
 end
 
-function Alien.move(x,y)
+function Alien:move(x,y)
 
 	self.alien.x, self.alien.y = self.alien.x+x, self.alien.y+y
 end
+
+function Alien:fire()
+	local laser = Laser:new(100, 100, 'up')
+    laser:fire(physics)
+
+end
+
+
 
 
 return Alien
