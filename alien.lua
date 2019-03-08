@@ -5,27 +5,16 @@
 
 -- Fires a laser downwards towards the player.
 
-local alien = {}
+local Alien = {}
 
-
-function alien.setup(x,y)
-
+function Alien:new(x,y)
 	alien=display.newRoundedRect( x, y, 100, 100, 10 )
-
-
-
-
-
-
-
+	setmetatable(l, self)
+	self.__index = self
 end
 
-function moveAlien(x,y)
-
+function Alien:move(x,y)
 	alien.x, alien.y = alien.x+x, alien.y+y
 end
 
-
-
-
-return alien
+return Alien
