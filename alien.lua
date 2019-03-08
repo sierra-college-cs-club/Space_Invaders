@@ -20,7 +20,7 @@ function alien.setup(x,y)
 
 end
 
-function moveAlien(x,y)
+function alien.move(x,y)
 
 	alien.x, alien.y = alien.x+x, alien.y+y
 end
