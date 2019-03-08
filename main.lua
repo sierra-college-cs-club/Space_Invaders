@@ -1,5 +1,17 @@
 local Laser = require('laser')
 local physics = require('physics')
+local alien_cluster = require('alien-cluster')
+
+--Screen location shortcuts.
+screen = {}
+screen.width = display.actualContentWidth
+screen.height = display.actualContentHeight
+screen.xMin = display.screenOriginX
+screen.yMin = display.screenOriginY
+screen.xMax = screen.xMin + screen.width
+screen.yMax = screen.yMin + screen.height
+screen.xCenter = (screen.xMin + screen.xMax) / 2
+screen.yCenter = (screen.yMin + screen.yMax) / 2
 
 -- game loop here
 
