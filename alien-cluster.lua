@@ -5,4 +5,4 @@
 local alienSource=require('alien')
 
 
-alienSource:new(104,247)
+alienSource:new(104,104)
