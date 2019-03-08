@@ -10,7 +10,7 @@ local alien
 
 function setupAlien(x,y)
 
-	display.newRoundedRect( x, y, 200, 200, 23 )
+	display.newRoundedRect( x, y, 100, 100, 23 )
 
 
 
