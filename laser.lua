@@ -2,9 +2,9 @@
 -- Store amount of damage.
 -- Should be destroyed after being off screen.
 
-local SPEED = 400
-
 Laser = {}
+Laser.SPEED = 700
+Laser.DELETION_TIMER = 600000 / Laser.SPEED -- 600000 works with any 'SPEED' value.
 
 -- @return A new Laser object.
 function Laser:new(x, y, dir)
@@ -22,8 +22,14 @@ function Laser:fire(physics)
     physics.addBody(body, 'kinematic')
     body.gravityScale = 0
     body.isBullet = true
-    body:setLinearVelocity(0, self.dir == 'up' and -SPEED or SPEED)
+    body:setLinearVelocity(0, self.dir == 'up' and -self.SPEED or self.SPEED)
     self.body = body
+    timer.performWithDelay(self.DELETION_TIMER, function() return self:delete() end)
+end
+
+-- Removes the laser from the physics & graphics context
+function Laser:delete()
+    self.body:removeSelf()
 end
 
 return Laser
