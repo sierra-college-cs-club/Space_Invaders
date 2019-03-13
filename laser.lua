@@ -3,7 +3,7 @@
 -- Should be destroyed after being off screen.
 
 Laser = {}
-Laser.SPEED = 700
+Laser.SPEED = 600
 Laser.DELETION_TIMER = 600000 / Laser.SPEED -- 600000 works with any 'SPEED' value.
 
 -- @return A new Laser object.
