@@ -1,8 +1,9 @@
 local Laser = require('laser')
 local physics = require('physics')
 local alien_cluster = require('alien-cluster')
+local laser_cannon = require('laser-cannon')
 
---Screen location shortcuts.
+-- Screen location shortcuts.
 screen = {}
 screen.width = display.actualContentWidth
 screen.height = display.actualContentHeight
@@ -22,13 +23,8 @@ screen.yCenter = (screen.yMin + screen.yMax) / 2
 -- respective files.
 
 physics.start()
-
 myCluster = alien_cluster:new(20, 8)
-
-startAliens()
-
-local lasercanon = display.newRect(display.contentCenterX, display.contentHeight +20, 40,20)
-
+-- startAliens() 
 
 function testLaser(e)
     if e.phase == 'began' then
