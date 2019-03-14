@@ -1,7 +1,6 @@
-local Laser = require('laser')
+-- Enable physics for all packages.
 local physics = require('physics')
-local alien_cluster = require('alien-cluster')
-local laser_cannon = require('laser-cannon')
+physics.start()
 
 -- Screen location shortcuts.
 screen = {}
@@ -14,6 +13,11 @@ screen.yMax = screen.yMin + screen.height
 screen.xCenter = (screen.xMin + screen.xMax) / 2
 screen.yCenter = (screen.yMin + screen.yMax) / 2
 
+-- Define modules after screen declaration & physics begin.
+local Laser = require('laser')
+local alien_cluster = require('alien-cluster')
+local laser_cannon = require('laser-cannon')
+
 -- game loop here
 
 -- Keep track of scores, synchronize all game actions, handle any extra
@@ -22,7 +26,6 @@ screen.yCenter = (screen.yMin + screen.yMax) / 2
 -- Try to keep this file minimum, while handling relevent logic within their
 -- respective files.
 
-physics.start()
 myCluster = alien_cluster:new(20, 8)
 -- startAliens() 
 
