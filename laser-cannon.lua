@@ -9,24 +9,33 @@ local body = display.newRect(display.contentCenterX, display.contentHeight + 20,
 
 -- create physics body with the rectangle. see: https://docs.coronalabs.com/api/library/physics/addBody.html
     -- Body Type: https://docs.coronalabs.com/api/type/Body/bodyType.html - Kinematic
-physics.addBody(body, "kinematic")
+--physics.addBody(body, "kinematic")
 
 -- Generalized movement function.
     -- Able to be called from multiple event contexts.
     -- Linear Velocity: https://docs.coronalabs.com/api/type/Body/setLinearVelocity.html
 -- @param direction Movement direction, 'left', 'right', or nil (stop).
+
+
 local function move(direction)
 	if direction == "left" then
-		body:setLinearVelocity(-SPEED, 0)
-	elseif direction == "right" then
-		body:setLinearVelocity(SPEED, 0)
-	else
-		body:setLinearVelocity(0, 0)
+		body.x=body.x-SPEED
+	
+		--body:setLinearVelocity(0, 0)
 	end
 end
 
 
+local function moveLeft()
+	move("left")
+end
+
+local function moveRight()
+	move("right")
+end
+
 local buttons = require('buttons')
+buttons.left_arrow:addEventListener( "touch", moveLeft )
 -- attach the movement function to it's corresponding button in this api.
 	-- Buttons.left_arrow - move('left')
 	-- Buttons.right_arrow - move('right')
