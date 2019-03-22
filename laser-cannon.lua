@@ -2,8 +2,8 @@
 -- Handle health / movement / laser firing.
 
 -- constants
-local SPEED = 10
-
+local SPEED = 7
+local Dir = ""
 -- define body rectangle
 local body = display.newRect(display.contentCenterX, display.contentHeight + 20, 40, 20) 
 
@@ -18,24 +18,42 @@ local body = display.newRect(display.contentCenterX, display.contentHeight + 20,
 
 
 local function move(direction)
-	if direction == "left" then
-		body.x=body.x-SPEED
-	
+	Dir = direction
 		--body:setLinearVelocity(0, 0)
+end
+
+local function updateMovement()
+	if Dir == "left" then
+		body.x=body.x-SPEED
+	elseif Dir == "right" then
+		body.x=body.x+SPEED
 	end
 end
 
 
-local function moveLeft()
-	move("left")
+local function moveLeft(event)
+	if event.phase == "began" then	
+		move("left")
+	elseif event.phase == "ended" then
+		move("")
+	end
 end
 
-local function moveRight()
-	move("right")
+local function moveRight(event)
+	if event.phase =="began" then
+		move("right")
+	elseif event.phase == "ended" then
+		move("")
+	end
+
 end
 
 local buttons = require('buttons')
 buttons.left_arrow:addEventListener( "touch", moveLeft )
+buttons.right_arrow:addEventListener( "touch", moveRight )
+Runtime:addEventListener("enterFrame", updateMovement)
+
+
 -- attach the movement function to it's corresponding button in this api.
 	-- Buttons.left_arrow - move('left')
 	-- Buttons.right_arrow - move('right')
