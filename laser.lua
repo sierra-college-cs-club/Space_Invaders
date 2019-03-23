@@ -4,7 +4,9 @@
 
 Laser = {}
 Laser.SPEED = 600
-Laser.DELETION_TIMER = 600000 / Laser.SPEED -- 600000 works with any 'SPEED' value.
+
+-- Dividing 600000 with the laser speed provides a nice ratio for scaling the lifespan of an individual laser.
+Laser.DELETION_TIMER = 600000 / Laser.SPEED
 
 -- @return A new Laser object.
 function Laser:new(x, y, dir)
@@ -28,7 +30,8 @@ function Laser:fire()
     body.isLaser = true
     self.body = body
     self.removed = false
-    body.laserMeta = self -- circular dependency, allows cross referencing.
+    -- circular reference, allows the custom Laser object to be referenced directly from any Corona context (such as events).
+    body.laserMeta = self
 end
 
 -- Removes the laser from the physics & graphics context
