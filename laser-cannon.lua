@@ -1,6 +1,9 @@
 -- The laser cannon can move in the X direction with a fixed Y position.
 -- Handle health / movement / laser firing.
 
+local glo = require('globals')
+local screen = glo.screen
+
 -- constants
 local SPEED = 7
 local dir = ""

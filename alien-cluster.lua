@@ -2,6 +2,9 @@
 -- Speed increase should be organized here as well as their positions/
 -- descent patterns.
 
+local glo = require('globals')
+local screen = glo.screen
+
 local Alien=require('alien')
 
 local Cluster = {}
