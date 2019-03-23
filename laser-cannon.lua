@@ -3,33 +3,22 @@
 
 -- constants
 local SPEED = 7
-local Dir = ""
+local dir = ""
+
 -- define body rectangle
-local body = display.newRect(display.contentCenterX, display.contentHeight + 20, 40, 20) 
-
--- create physics body with the rectangle. see: https://docs.coronalabs.com/api/library/physics/addBody.html
-    -- Body Type: https://docs.coronalabs.com/api/type/Body/bodyType.html - Kinematic
---physics.addBody(body, "kinematic")
-
--- Generalized movement function.
-    -- Able to be called from multiple event contexts.
-    -- Linear Velocity: https://docs.coronalabs.com/api/type/Body/setLinearVelocity.html
--- @param direction Movement direction, 'left', 'right', or nil (stop).
-
+local body = display.newRect(screen.xCenter, display.contentHeight + 20, 40, 20)
 
 local function move(direction)
-	Dir = direction
-		--body:setLinearVelocity(0, 0)
+	dir = direction
 end
 
 local function updateMovement()
-	if Dir == "left" then
+	if dir == "left" then
 		body.x=body.x-SPEED
-	elseif Dir == "right" then
+	elseif dir == "right" then
 		body.x=body.x+SPEED
 	end
 end
-
 
 local function moveLeft(event)
 	if event.phase == "began" then	
@@ -45,17 +34,20 @@ local function moveRight(event)
 	elseif event.phase == "ended" then
 		move("")
 	end
-
 end
 
-local buttons = require('buttons')
-buttons.left_arrow:addEventListener( "touch", moveLeft )
-buttons.right_arrow:addEventListener( "touch", moveRight )
+-- attach the movement function to it's corresponding button in the 'buttons' api.
+local buttons = require("buttons")
+buttons.left_arrow:addEventListener("touch", moveLeft)
+buttons.right_arrow:addEventListener("touch", moveRight)
 Runtime:addEventListener("enterFrame", updateMovement)
 
+-- TODO:
+	-- Consider screen wrapping.
+		-- balancing pros/cons/concerns?
 
--- attach the movement function to it's corresponding button in this api.
-	-- Buttons.left_arrow - move('left')
-	-- Buttons.right_arrow - move('right')
-	-- Buttons.shoot - Laser:new()
-	-- attach a 'touch' listener to each of these buttons.
+	-- Add laser firing functionality.
+
+	-- Move cannon body above buttons
+		-- Consider using the 'buttons' api to query it's height.
+		-- Hint: Use buttons.yPadding & buttons.<button_body>.height.
