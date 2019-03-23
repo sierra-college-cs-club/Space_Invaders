@@ -8,6 +8,7 @@ Before using any `git` command, open your terminal/command prompt and navigate t
 ### Update your local repo:
   - `git pull`
   - Updates the repo that your terminal/command prompt is at.
+  - If merging is necessary, either delete the colliding file or refer to git's documentation [here](https://git-scm.com/docs/git-merge).
   
 ### Commit your changes:
   - 'Stage' your changes using `git add filename.extension`
@@ -16,5 +17,5 @@ Before using any `git` command, open your terminal/command prompt and navigate t
   
 ### Update the remote repo:
   - `git push`
-  - Updates the repository on GitHub with your changes. If merging is necessary, either delete the colliding file or refer to git's documentation [here](https://git-scm.com/docs/git-merge).
+  - Updates the repository on GitHub with your changes.
   - You **may** need to sign in before pushing.
