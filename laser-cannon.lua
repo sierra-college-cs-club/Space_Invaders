@@ -49,6 +49,8 @@ Runtime:addEventListener("enterFrame", updateMovement)
 	-- Consider screen wrapping.
 		-- balancing pros/cons/concerns?
 
+	-- Add keyboard functionality to make testing/playing on a computer easier.
+
 	-- Add laser firing functionality.
 
 	-- Move cannon body above buttons
