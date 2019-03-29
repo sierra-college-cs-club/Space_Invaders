@@ -1,4 +1,6 @@
 local widget = require('widget')
+local glo = require('globals')
+local screen = glo.screen
 
 -- Buttons displays buttons to the screen that when pressed perform some action.
 

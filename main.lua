@@ -27,12 +27,13 @@ local laser_cannon = require('laser-cannon')
 -- respective files.
 
 myCluster = alien_cluster:new(20, 8)
+local myCluster = alien_cluster:new(20, 8)
 -- startAliens() 
 
-function testLaser(e)
+local function testLaser(e)
     if e.phase == 'began' then
         local laser = Laser:new(e.x, e.y, 'up')
-        laser:fire(physics)
+        laser:fire()
     end
 end
 
