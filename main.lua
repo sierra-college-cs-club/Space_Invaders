@@ -25,4 +25,4 @@ local function testLaser(e)
     end
 end
 
-Runtime:addEventListener('touch', testLaser)
+Runtime:addEventListener('touch', shootUp)

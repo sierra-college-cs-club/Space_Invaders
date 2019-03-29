@@ -1,6 +1,6 @@
 -- The laser cannon can move in the X direction with a fixed Y position.
 -- Handle health / movement / laser firing.
-
+local Laser = require('laser')
 local glo = require('globals')
 local screen = glo.screen
 
@@ -38,6 +38,15 @@ local function moveRight(event)
 		move("")
 	end
 end
+
+ function shootUp(event)
+ 	if event.phase == 'began' then
+		local l = Laser:new(body.x, body.y, "up")
+		l:fire()
+	end
+end
+--shootUp()
+
 
 -- attach the movement function to it's corresponding button in the 'buttons' api.
 local buttons = require("buttons")
