@@ -25,15 +25,16 @@ function Cluster:new(clusterSize, columns)
 	return cluster
 end
 
---function Cluster:NewShot()
---	local x = math.random( #cluster*20 )
---	if x< #cluster then
---		cluster[x]:fire()
---	end
+--[[function Cluster:NewShot()
+	local x = math.random( #cluster*20 )
+	if x< #cluster then
+		cluster[x]:fire()
+	end
 
---end
+end
 
 --Runtime:addEventListener( "enterFrame", Cluster:NewShot )
+]]--
 
 return Cluster
 
