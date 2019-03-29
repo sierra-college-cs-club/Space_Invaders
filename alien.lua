@@ -17,6 +17,7 @@ function Alien:new(x,y)
 	-- Added body to physics to allow collision with lasers.
 		-- see: https://docs.coronalabs.com/api/type/Body/bodyType.html for more physics body collision info.
 	physics.addBody(self.object, 'kinematic')
+	self.isAlien = true
 
 	return self
 end
