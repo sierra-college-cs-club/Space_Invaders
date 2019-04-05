@@ -1,6 +1,8 @@
 -- Stationary & partially blocks player / alien attacks.
 -- Slowly (and visually) destroyed with every hit.
 local createBunker = {}
+local glo = require("globals")
+local screen = glo.screen
 
 function createBunker:new(bunkNo, y)
 	-- body
