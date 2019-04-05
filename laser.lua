@@ -52,6 +52,14 @@ local function onLaserCollision(event)
     if event.object2.isLaser then
         event.object2.laserMeta:delete()
     end
+
+    if event.object1.isCannon then
+        event.object1:onCollision(event)
+    end
+
+    if event.object2.isCannon then
+        event.object2:onCollision(event)
+    end
 end
 
 Runtime:addEventListener('preCollision', onLaserCollision)
