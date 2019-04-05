@@ -16,16 +16,16 @@ local function move(direction)
 end
 
 local function updateMovement()
-	if dir == "left" then
+	if dir == "left" and body.x > body.width / 2 then
 		body.x=body.x-SPEED
-	elseif dir == "right" then
+	elseif dir == "right" and body.x < screen.width - body.width / 2 then
 		body.x=body.x+SPEED
 	end
 end
 
 local function moveLeft(event)
 	if event.phase == "began" then	
-		move("left")
+		move("left") 
 	elseif event.phase == "ended" then
 		move("")
 	end
@@ -41,27 +41,29 @@ end
 
  function shootUp(event)
  	if event.phase == 'began' then
-		local l = Laser:new(body.x, body.y, "up")
+		local l = Laser:new(body.x, body.y - body.height, "up")
 		l:fire()
 	end
 end
 --shootUp()
-
+function keyPress(event)
+	print (event.phase)
+	if event.phase == "down" then
+	
+		move(event.keyName)
+	elseif event.phase == "up" then
+		move("")
+	end
+end
 
 -- attach the movement function to it's corresponding button in the 'buttons' api.
 local buttons = require("buttons")
 buttons.left_arrow:addEventListener("touch", moveLeft)
 buttons.right_arrow:addEventListener("touch", moveRight)
+Runtime:addEventListener("key", keyPress)
 Runtime:addEventListener("enterFrame", updateMovement)
 
 -- TODO:
-	-- Consider screen wrapping.
-		-- balancing pros/cons/concerns?
-
+	
 	-- Add keyboard functionality to make testing/playing on a computer easier.
 
-	-- Add laser firing functionality.
-
-	-- Move cannon body above buttons
-		-- Consider using the 'buttons' api to query it's height.
-		-- Hint: Use buttons.yPadding & buttons.<button_body>.height.
