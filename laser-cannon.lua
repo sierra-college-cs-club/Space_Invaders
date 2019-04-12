@@ -4,6 +4,7 @@ local Laser = require('laser')
 local glo = require('globals')
 local screen = glo.screen
 local PADDING = 0
+local TEXT_PADDING = 20
 -- constants
 local SPEED = 7
 local dir = ""
@@ -23,8 +24,21 @@ function body.onCollision(event)
 		print("Dead")
 	end
 	
+	if hitsTaken > maxHealth then
+		lifeCounter.text = "GAME OVER!"
+	else
+		lifeCounter.text = "Lives:  "..maxHealth - hitsTaken
+	end
 
 end
+
+lifeCounter = display.newText{
+	text = "Lives:  "..maxHealth - hitsTaken,
+	x = glo.screen.xMax - glo.screen.xCenter/3 - TEXT_PADDING,
+	y = glo.screen.yMin + TEXT_PADDING,
+	font = native.systemFont,
+	fontSize = 20,
+}
 
 local function move(direction)
 	dir = direction
